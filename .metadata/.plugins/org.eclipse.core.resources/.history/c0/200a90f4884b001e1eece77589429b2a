@@ -1,0 +1,31 @@
+package lottomanager;
+
+import java.util.Scanner;
+
+public class LottoMain {
+
+	public static void main(String[] args) {
+		LottoManager lm = new LottoManager();
+		Scanner scan = new Scanner(System.in);
+		
+		Lotto l = new Lotto();
+		l.randomLotto();
+		System.out.println(l);
+		LottoE le = new LottoE();
+		le.randomLotto();
+		System.out.println(le);
+		
+		int arr[] = {1,2,3,4,5,6};
+		l.insertNumbers(arr);
+		System.out.println(l);
+		int arr2[] = {7,13,9,10,11,12,13};
+		le.insertNumbers(arr2);
+		System.out.println(le);
+		
+		
+		
+		
+		scan.close();
+	}
+
+}

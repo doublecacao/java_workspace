@@ -1,0 +1,61 @@
+package day15;
+
+import java.util.Scanner;
+
+public class Exception02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Exception02 ex = new Exception02();
+		try {
+			System.out.println("결과 : "+ex.calc());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		System.out.println("계산기 종료");
+		
+	}
+	
+	//두 수, 연산자를 입력받아 4칙 연산을 수행하고 결과를 리턴하는 메서드 생성
+	public double calc() throws RuntimeException{
+		double result = 0;
+		int num1, num2;
+		String str;
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("첫번째 정수 입력 -> ");
+		num1 = scan.nextInt();
+		
+		System.out.print("두번째 정수 입력 -> ");
+		num2 = scan.nextInt();
+		
+		System.out.print("연산자 입력 -> ");
+		str = scan.next();
+		
+		//thorw를 발생시키게되면 예외를 메서드를 호출하는 객체에게 넘기는 현상
+		//throw를 발생시키게 되면 메서드 선언부 끝에 throws 발생할 수 있는 예외를 반드시 적어줘야함.
+		if((str.equals("/")||str.equals("%"))&&num2 == 0) {
+			throw new RuntimeException("num2는 0이 될 수 없습니다.");
+		}
+		
+		if (str.equals("+")) {
+			result = num1 + num2;
+		}
+		else if (str.equals("-")) {
+			result = num1 - num2;
+		}
+		else if (str.equals("*")) {
+			result = num1 * num2;
+		}
+		else if (str.equals("/")) {
+			result = num1 / num2;
+		}
+		else if (str.equals("%")) {
+			result = (double)(num1 % num2);
+		}
+		
+		return result;
+	}
+}

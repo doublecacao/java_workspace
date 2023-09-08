@@ -1,0 +1,139 @@
+package day16;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class List02 {
+
+	public static void main(String[] args) {
+		/* --메뉴판--
+		 * 1.햄버거:7000
+		 * 2.피자:15000
+		 * 3.음료수:2000
+		 * 4.과자:1000
+		 * 5.사탕:500
+		 * 6.프로그램종료
+		 * 
+		 * 메뉴선택 > 1
+		 * 수량 > 2
+		 * => 1번 햄버거 2개 주문
+		 * 주문을 끝내시려면 0을 눌러주세요.
+		 * 
+		 * 메뉴선택 > 3
+		 * 수량 > 2
+		 * => 3번 음료수 2개 주문
+		 * 주문을 끝내시려면 0을 눌러주세요
+		 * 
+		 * --선택한 메뉴--
+		 * 1. 햄버거 2개
+		 * 2. 음료 2개
+		 * 총 지불금액 000원
+		 */
+		FoodManager fm = new FoodManager();
+		fm.saveMenu();
+		fm.menuOrder();
+		fm.printResult();
+	}
+
+}
+
+class FoodManager{
+	//멤버변수 ArrayList 메뉴, ArrayList 가격
+	//그외 필요한 멤버변수는 선택
+	private List<String> menu = new ArrayList<String>();			//메뉴를 추가받는 리스트배열 생성
+	private List<Integer> price = new ArrayList<Integer>();			//메뉴의 가격을 추가받는 리스트배열 생성
+	
+	private List<String> menuchoice = new ArrayList<String>();
+	private List<Integer> pricechoice = new ArrayList<Integer>();
+	
+	private List<Integer> saveNum = new ArrayList<Integer>();
+	private int cnt=0;
+	
+	Scanner scan = new Scanner(System.in);
+	
+	public FoodManager() {}									//초기값이 없으므로 기본생성자만 생성
+	
+	
+	//메서드
+	//출력 : 결과출력, 메뉴출력, 주문, 계산
+	
+	public void saveMenu() {								//메뉴를 추가하는 메소드
+		char ch;
+		
+		do {
+			System.out.print("메뉴를 추가해주세요> ");
+			menu.add(scan.next());
+			
+			System.out.print("가격을 입력해주세요> ");
+			price.add(scan.nextInt());
+			
+			System.out.print("메뉴를 계속 추가하시겠습니까(y/n) ");
+			ch = scan.next().charAt(0);
+		}while(ch=='y');									//y를 선택하면 계속해서 메뉴 추가
+	}
+	
+	public void priceCal(int menuNum) {						//선택한 메뉴와 가격을 저장받는 메소드
+		menuchoice.add(menu.get(menuNum-1));				//메뉴판은 1번부터 시작이지만 배열은 0번지 시작이기때문에 -1로 값 조정
+		pricechoice.add(price.get(menuNum-1));
+	}
+	
+	public void saveNum(int num) {							//선택한 메뉴의 개수를 저장받는 메소드
+		saveNum.add(num);
+	}
+	
+	public void printMenu() {								//추가한 메뉴를 메뉴판에 출력하는 메소드
+		int i;
+		System.out.println("--메뉴판--");
+		
+		for(i=0; i<menu.size(); i++) {						//추가한 메뉴 리스트배열 크기만큼 i증가
+			System.out.println((i+1)+"."+menu.get(i)+":"+price.get(i));		//지금까지 추가한 메뉴 출력
+		}	
+		System.out.println((i+1)+".프로그램종료");				//마지막 메뉴의 다음 번호는 프로그램종료 메뉴 출력
+	}
+	
+	public void menuOrder() {								//메뉴를 주문받는 메소드
+		int choiceMenu;										//선택한 메뉴의 번호를 저장하는 변수
+		int choicePrice;									//메뉴의 개수를 저장하는 변수
+		int choiceEnd;										//주문의 반복을 종료하는 값을 저장하는 변수
+		
+		do {
+			printMenu();									//메뉴판 출럭
+			System.out.print("메뉴선택 > ");
+			choiceMenu = scan.nextInt();
+			
+			if(choiceMenu==(menu.size()+1)) {				//생성한 메뉴의 +1은 프로그램 종료
+				cnt=1;
+				break;
+			}
+			
+			System.out.print("수량 > ");
+			choicePrice = scan.nextInt();
+			
+			System.out.println("=>"+choiceMenu+"번 "+menu.get(choiceMenu-1)+" "+choicePrice+"개 주문");
+			
+			priceCal(choiceMenu);							//선택한 메뉴를 메소드에 저장
+			saveNum(choicePrice);							//선택한 메뉴의 주문 갯수를 메소드에 저장
+			
+			System.out.println("주문을 끝내시려면 0을 눌러주세요> ");
+			choiceEnd = scan.nextInt();
+		}while(choiceEnd!=0);
+		
+	}
+	
+	public void printResult() {								//주문결과 출력
+		int resultPrice = 0;								//주문한 메뉴의 값을 중첩 저장하는 변수
+		
+		if(cnt==0) {										//메뉴판에서 프로그램 종료를 선택하면 실행안함
+		System.out.println("--선택한 메뉴--");
+		
+		for(int i=0; i<menuchoice.size(); i++) {			//선택한 메뉴의 갯수만큼 i증가
+			System.out.println((i+1)+". "+menuchoice.get(i)+" "+saveNum.get(i)+"개");	//지금까지 주문한 메뉴과 갯수 출력	
+		}
+		for(int i=0; i<pricechoice.size(); i++) {			//선택한 메뉴의 가격 갯수만큼 i증가
+			resultPrice += pricechoice.get(i)*saveNum.get(i);							//메뉴의 가격과 갯수를 곱해 지금까지 주문한 총 금액 중첩
+		}
+			System.out.println("총 지불금액 "+resultPrice);			
+		}
+	}
+}

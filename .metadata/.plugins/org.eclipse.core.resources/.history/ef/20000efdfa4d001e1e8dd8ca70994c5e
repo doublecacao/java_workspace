@@ -1,0 +1,75 @@
+package day17;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class MapEx01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* map을 이용한 성적 관리 프로그램을 생성
+		 * --menu--
+		 * 1.성적추가
+		 * 2.성적조회(전체출력) : 합계/평균 같이 출력
+		 * 3.성적조회(과목조회) : 국어 => 98점 서치후 일치하는 과목 출력
+		 * 4.성적수정 : 서치후 수정
+		 * 5.성적삭제
+		 */
+	}
+
+}
+
+class {
+	private HashMap<String, Integer> point = new HashMap<String, Integer>();
+	
+	public point2() {
+		init();
+	}
+	
+	
+	public void init() {
+		Scanner scan = new Scanner(System.in);
+		int end=0;
+		do {
+			System.out.print("과목> ");
+			String subject = scan.next();
+			
+			System.out.print("점수> ");
+			int pt = scan.nextInt();
+			
+			point.put(subject, pt);
+		
+			System.out.print("다시입력? 종료(0) ");
+			end = scan.nextInt();
+			
+		}while(end!=0);
+		
+	}
+	
+	public void print() {
+		for(String tmp : point.keySet()) {
+			System.out.println(tmp+" "+point.get(tmp));
+		}
+	}
+	public double sum() {
+		int sum = 0;
+		for(String tmp : point.keySet()) {
+			sum += point.get(tmp);
+		}
+		System.out.println("합계:"+sum);
+		return (double)sum;
+	}
+	
+	public void avg() {
+		double avg;
+		int cnt = 0;
+		Iterator<String> it = point.keySet().iterator();
+		while(it.hasNext()) {
+			String tmp = it.next();
+			cnt++;
+		}
+		avg = sum()/cnt;
+		System.out.println("평균:"+avg);
+	}
+}

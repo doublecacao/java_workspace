@@ -1,0 +1,124 @@
+package lottomanagerMy;
+
+import java.util.Scanner;
+
+public class LottoManager implements LottoProgram{
+	/*--menu--
+1. 로또 번호 생성(수동) : 사용자가 직접 입력
+	=> createLotto(scan);
+2. 로또 번호 생성(자동) : random (6자리)
+	=> createLottoAuto();
+3. 당첨 번호 생성(자동) : random (7자리) => 배열에 저장
+	=> insertLottoAuto();
+4. 당첨 번호(내역) 확인 : 1개만 확인 =>등수 체크 (현재회차 당첨번호가 가장 위에 출력)
+	=> checkLotto();
+5. 당첨번호 리스트 확인 : 전부 (마지막 당첨번호가 가장 위에 출력)
+	=> printLotto();
+6. 종료
+
+1. Lotto클래스 (6개 배열 생성하는 로또 클래스)
+	=> 수동 생성에 대한 메서드
+2. LottoE클래스 => 기존 로또클래스를 상속받아 처리
+	=> 당첨번호	기존배열(6자리) int bonus만 처리
+3. LottoManager => 메뉴의 메서드 처리
+4. LottoMain => 메뉴처리
+	*/
+	Lotto lt = new Lotto();
+	LottoE le = new LottoE();
+	LottoE[] learray = new LottoE[5];
+	int b;
+	int cnt;
+	int cntarray;
+
+	@Override
+	public void createLotto(Scanner scan) {
+		lt.createLotto(scan);
+	}
+	
+	
+	@Override
+	public void createLottoAuto() {
+		System.out.println("랜덤 로또 번호를 생성합니다.");
+		lt.setLottoNum(lt.lotto());
+		System.out.println("생성이 완료되었습니다.");
+	}
+
+	@Override
+	public void insertLottoAuto() {
+		System.out.println("랜덤 당첨 번호를 생성합니다.");
+		lt.setCheckNum(lt.lotto());
+		le.bonus();
+		System.out.println("생성이 완료되었습니다.");
+		if(cntarray==learray.length) {
+			LottoE[] tmp = new LottoE[cntarray+5];
+			System.arraycopy(learray, 0, tmp, 0, learray.length);
+			learray = tmp;
+		}
+		learray[cntarray] = new LottoE();
+		learray[cntarray].setCheckNum(lt.getCheckNum());
+		learray[cntarray].setBonus(le.getBonus());
+		cntarray++;
+	}
+
+	@Override
+	public void checkLotto() {
+		cnt=0;
+		b=0;
+		System.out.println("당첨 번호를 확인합니다.");
+		for(int i=0; i<lt.getCheckNum().length; i++) {
+			System.out.print(lt.getCheckNum()[i]+" ");
+		}
+		System.out.println("+ "+le.getBonus());
+		System.out.println("등수를 확인합니다.");
+		for(int i=0; i<lt.getLottoNum().length; i++) {
+			if(lt.getLottoNum()[i]==lt.getCheckNum()[i]) {
+				cnt++;
+			}
+			if(lt.getLottoNum()[i]==le.getBonus()) {
+				b=1;
+			}
+		}
+
+		switch(cnt) {
+		case 0:
+			System.out.println("꽝");
+			break;
+		case 1:
+			System.out.println("꽝");
+			break;
+		case 2:
+			System.out.println("꽝");
+			break;
+		case 3: 
+			System.out.println("5등");
+			break;
+		case 4:
+			System.out.println("4등");
+			break;
+		case 5:
+			if(b==1) {
+				System.out.println("2등");
+				break;
+			}
+			System.out.println("3등");
+			break;
+		case 6:
+			System.out.println("1등");
+			break;
+			default:
+		}
+	}
+
+	@Override
+	public void printLotto() {
+		System.out.println("당첨번호 리스트를 확인합니다.");
+		for(int i=cntarray-1; i>=0; i--) {
+			System.out.print((i+1)+"회차 : ");
+			for(int j=0; j<learray[i].getCheckNum().length; j++) {
+				System.out.print(learray[i].getCheckNum()[j]+" ");
+			}
+			System.out.println("+ ["+learray[i].getBonus()+"]");
+		}
+	}
+
+}

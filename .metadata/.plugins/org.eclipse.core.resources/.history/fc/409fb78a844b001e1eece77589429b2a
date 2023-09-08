@@ -1,0 +1,32 @@
+package lottomanager;
+
+public class LottoE extends Lotto{
+	//당첨번호 생성 클래스 Lotto를 상속받아서 보너스 번호만을 처리
+	//멤버변수
+	private int bonus;	//보너스 번호
+
+	
+	
+	//오버라이딩 메서드
+	@Override
+	protected void randomLotto() {
+		super.randomLotto();	//기존 메서드 numbers의 배열은 이미 채워진 상황
+		int r = random();
+	}
+	
+	@Override
+	protected void init() {
+		super.init();
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+	
+	@Override
+	protected void insertNumbers(int[] arr) {
+		super.insertNumbers(arr);
+	}
+	
+}

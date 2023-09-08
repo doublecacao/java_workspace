@@ -1,0 +1,113 @@
+package day16;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Collection01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* 컬렉션 프레임워크 : 표준화된 방식의 자료구조
+		 * List, Set, Map
+		 * 데이터를 묶어서 관리할 때 사용 (배열 대신으로 List)
+		 * 주로 배열 대신에 사용
+		 * 
+		 * List
+		 * 	-배열과 동일
+		 * 	-값을 하나씩 저장
+		 * 	-중복허용
+		 * 	-index를 가짐
+		 * 	-배열 대신에 가장 많이 사용
+		 * 
+		 * Set
+		 * 	-값을 하나씩 저장
+		 * 	-중복허용x
+		 * 	-index가 없음
+		 * 	-순서보장x
+		 * 
+		 * Map
+		 * 	-값을 두개씩 저장, key/value 쌍으로 저장
+		 * 	-key 중복불가, value는 중복가능
+		 * 	-key가 중복되면 덮어쓰기 됨
+		 * 	-아이디/패스워드처럼 같이 묶어서 하나의 자료로 저장해야할 때 사용됨.
+		 * 	-순서보장x
+		 * 
+		 * int arr[] = new int[5];	//배열은 기본자료형으로 사용가능
+		 * collection에서는 클래스로 데이터를 관리
+		 * int -> Integer, String을 제외한 나머지 자료형은 첫글자만 대문자로 변환하면 클래스가 됨.
+		 * long -> Long, byte -> Byte, double -> Double
+		 * 클래스를 지정하지않으면 Object가 자동으로 지정
+		 */
+		List<Integer> list = new ArrayList<Integer>();	//일반적인 선언
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+		List list3 = new ArrayList();	//Object가 자동 지정된 케이스
+		
+		//add() : 리스트에 요소를 추가
+		list.add(10);
+		list.add(20);
+		list.add(30);
+		System.out.println(list);
+		
+		//size() : list의 개수 리턴
+		System.out.println(list.size());
+		
+		//문자열만 가능한 ArrayList 생성 3개 추가 후 출력
+		List<String> list4 = new ArrayList<String>();
+		
+		list4.add("a");
+		list4.add("b");
+		list4.add("c");
+		System.out.println(list4);
+		System.out.println(list4.size());
+		
+		//list2에 1부터 10까지 입력하고, 출력
+		for(int i=1; i<=10; i++) {
+			list2.add(i);
+		}
+		for(int i=1; i<=10; i++) {
+			list2.add(i);	//중복 가능
+		}
+		System.out.println(list2);
+		
+		//get(index) : index번지의 값을 가져오는것
+		System.out.println(list2.get(0));
+		
+		//set(index, 값) : index번지의 값을 변경하는것
+		list2.set(0, 3);
+		System.out.println(list2);
+		
+		//list2의 모든 요소를 출력
+		for(int i=0; i<list2.size(); i++) {
+			if(list2.get(i)%2==0) {
+				System.out.print(list2.get(i)+" ");				
+			}
+		}
+		System.out.println();
+		
+		//remove(index) : index번지값 삭제, remove(object):object 객체삭제
+		list2.remove(0);	//해당 번지값 삭제
+		System.out.println(list2);
+		Integer a = 10;	
+		list2.remove(a);	//해당 객체값 삭제
+		System.out.println(list2);
+		
+		//contains(Object) : list에 값이 있는지 검사 true/false
+		System.out.println("------------------------");
+		System.out.println(list2.contains(a));
+		
+		//clear() : 리스트 비움
+		list2.clear();
+		System.out.println(list2);
+		
+		//isEmpty() : list가 비었는지 체크 true/false
+		System.out.println(list2.isEmpty());
+		
+		//list2에 1부터 5까지 값을 추가하고 각 요소를 출력
+		for(int i=1; i<=5; i++) {
+			list2.add(i);
+		}
+		
+		//향상된 for문 
+	}
+
+}

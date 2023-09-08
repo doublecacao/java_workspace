@@ -1,0 +1,33 @@
+package lottomanager;
+
+import java.util.Scanner;
+
+public class Lotto {
+	
+	private int[] lottoNum = new int[6];
+	private int cnt;
+	
+	
+	
+	public void createLotto(Scanner scan) {
+		System.out.println("수동 로또 번호를 생성합니다.");
+		for(int i=0; i<lottoNum.length; i++) {			
+			System.out.print((i+1)+"번째 로또 번호를 입력해주세요> ");
+			lottoNum[i] = scan.nextInt();
+		}
+		System.out.println("생성이 완료되었습니다.");
+	}
+	
+	public void createLottoAuto() {
+		System.out.println("랜덤 로또 번호를 생성합니다.");
+		for(int i=0; i<lottoNum.length; i++) {
+			lottoNum[i] = (int)(Math.random()*45)+1;
+			for(int j=0; j<i; j++) {
+				if(lottoNum[i]==lottoNum[j]) {
+					i--;
+				}
+			}
+		}
+		System.out.println("생성이 완료되었습니다.");
+	}
+}

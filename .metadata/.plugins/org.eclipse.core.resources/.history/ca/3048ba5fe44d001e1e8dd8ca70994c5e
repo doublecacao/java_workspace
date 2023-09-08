@@ -1,0 +1,12 @@
+package day17;
+
+public class Set01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* Set : 순서보장x (index가 없음) 중복x
+		 * HashSet
+		 */
+	}
+
+}

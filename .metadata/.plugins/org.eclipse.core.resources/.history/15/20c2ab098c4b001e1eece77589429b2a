@@ -1,0 +1,87 @@
+package lottomanager;
+
+import java.util.Scanner;
+
+public class LottoManager implements LottoProgram{
+	//멤버변수 선언
+	LottoE lotto[] = new LottoE[5];	//당첨번호 배열 리스트
+	Lotto user = new Lotto();
+	
+	
+	
+	public void printMenu()	{
+		System.out.println("--로또 프로그램--");
+		System.out.println("1.로또번호생성(수동)");
+		System.out.println("2.로또번호생성(자동)");
+		System.out.println("3.당첨번호생성(자동)");
+		System.out.println("4.당첨확인(마지막회차번호)");
+		System.out.println("5.당첨번호목록확인(전체)");
+		System.out.println("6.종료");
+		System.out.print(">> menu >");
+		
+	}
+	@Override
+	public void createLotto(Scanner scan) {
+		// 로또 수동입력 메뉴
+		System.out.println("로또번호 입력.(중복x, 1~45범위, 숫자6자리");
+		int[] tmp = new int[6];	//입력받을 임시배열 변수
+		for(int i=0; i<tmp.length; i++) {
+			tmp[i] = scan.nextInt();
+		}
+		//중복 체크 후
+		if(isDuplicated(tmp)) {
+			System.out.println("오류발생~!! 취소");
+		}else {
+			user.insertNumbers(tmp);
+			printLotto("로또번호:"+user);
+		}
+	}
+	
+	public void printLotto(String str) {
+		System.out.println("-----------------");
+		System.out.println(str);
+	}
+	
+	//수동을 입력한 배열안의 같은 수가 포함되어 있는지 체크
+	public boolean isDuplicated(int []arr) {
+		for(int i=0; i<arr.length; i++) {
+			for(int j=i+1; j<arr.length; j++) {
+				if(arr[i] == arr[j]) {
+					return true;
+				}
+			}
+		}
+		//범위 체크
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i]<0||arr[i]>45) {				
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	@Override
+	public void createLottoAuto() {
+		
+		
+	}
+
+	@Override
+	public void insertLottoAuto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void checkLotto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void printLotto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

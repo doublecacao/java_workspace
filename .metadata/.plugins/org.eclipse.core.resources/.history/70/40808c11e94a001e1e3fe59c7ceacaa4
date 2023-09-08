@@ -1,0 +1,84 @@
+package lottomanager;
+
+import java.util.Scanner;
+
+public class LottoManager implements LottoProgram{
+	Lotto lt = new Lotto();
+	LottoE le = new LottoE();
+	int b;
+	int cnt;
+	
+	@Override
+	public void createLotto(Scanner scan) {
+		lt.createLotto(scan);
+	}
+	
+	
+	@Override
+	public void createLottoAuto() {
+		// TODO Auto-generated method stub
+		System.out.println("랜덤 로또 번호를 생성합니다.");
+		lt.setLottoNum(lt.lotto());
+		System.out.println("생성이 완료되었습니다.");
+	}
+
+	@Override
+	public void insertLottoAuto() {
+		// TODO Auto-generated method stub
+		System.out.println("랜덤 당첨 번호를 생성합니다.");
+		lt.setCheckNum(lt.lotto());
+		le.bonus();
+		System.out.println("생성이 완료되었습니다.");
+	}
+
+	@Override
+	public void checkLotto() {
+		// TODO Auto-generated method stub
+		System.out.println("당첨 번호를 확인합니다.");
+		System.out.println(lt.getCheckNum()+"+"+le.getBonus());
+		System.out.println("등수를 확인합니다.");
+		for(int i=0; i<lt.getLottoNum().length; i++) {
+			if(lt.getLottoNum()[i]==lt.getCheckNum()[i]) {
+				cnt++;
+			}
+			if(lt.getLottoNum()[i]==le.getBonus()) {
+				b=1;
+			}
+		}
+		switch(cnt) {
+		case 0:
+			System.out.println("꽝");
+			break;
+		case 1:
+			System.out.println("꽝");
+			break;
+		case 2:
+			System.out.println("꽝");
+			break;
+		case 3: 
+			System.out.println("5등");
+			break;
+		case 4:
+			System.out.println("4등");
+			break;
+		case 5:
+			if(b==1) {
+				System.out.println("2등");
+				break;
+			}
+			System.out.println("3등");
+			break;
+		case 6:
+			System.out.println("1등");
+			break;
+			default:
+		}
+	}
+
+	@Override
+	public void printLotto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

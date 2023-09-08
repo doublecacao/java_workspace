@@ -1,0 +1,39 @@
+package lottomanager;
+
+import java.util.Scanner;
+
+public class ProgramManager implements LottoProgram{
+	Lotto[] ltm = new Lotto[5];
+	
+	
+	@Override
+	public void createLotto(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void createLottoAuto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void insertLottoAuto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void checkLotto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void printLotto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

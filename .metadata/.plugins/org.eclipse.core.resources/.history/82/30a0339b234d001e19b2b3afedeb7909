@@ -1,0 +1,29 @@
+package day16;
+
+public class Collection01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/* 컬렉션 프레임워크 : 표준화된 방식의 자료구조
+		 * List, Set, Map
+		 * 데이터를 묶어서 관리할 때 사용 (배열 대신으로 List)
+		 * 주로 배열 대신에 사용
+		 * 
+		 * List
+		 * 	-배열과 동일
+		 * 	-값을 하나씩 저장
+		 * 	-중복을 허용
+		 * 	-index를 가짐
+		 * 	-배열 대신에 가장 많이 사용
+		 * 
+		 * Set
+		 * 	-값을 하나씩 저장
+		 * 	-중복을 허용x
+		 * 	-index가 없음
+		 * 	-순서를 보장x
+		 * 
+		 * Map
+		 */
+	}
+
+}

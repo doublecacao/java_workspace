@@ -1,0 +1,17 @@
+package day17;
+
+public class Map01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		/* Map
+		 * 	-값을 2개 저장, key / value 값으로 저장
+		 * 	-key는 중복불가, value는 중복가능
+		 * 	-HashMap을 가장 많이 사용
+		 * 
+		 * HashMap<String, Integer> map = new HashMap<String, Integer>();
+		 */
+	}
+
+}

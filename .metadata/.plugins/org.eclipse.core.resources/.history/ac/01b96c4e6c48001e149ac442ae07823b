@@ -1,0 +1,26 @@
+package day13;
+
+public class ProgramClass {
+
+}
+
+class StuInfo{
+	private String name;
+	private String age;
+	private String phone;
+	private String[] coursePeriod = new String[5];
+	
+	
+	
+	StuInfo() {}
+	StuInfo(String name, String age, String phone){
+		this.name = name;
+		this.age = age;
+		this.phone = phone;
+	}
+	
+	
+	
+	
+	
+}

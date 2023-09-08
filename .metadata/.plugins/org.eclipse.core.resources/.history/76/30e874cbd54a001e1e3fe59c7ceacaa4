@@ -1,0 +1,5 @@
+package lottomanager;
+
+public class LottoE extends Lotto{
+
+}

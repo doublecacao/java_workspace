@@ -1,0 +1,5 @@
+package lottomanager;
+
+public class LottoE extends Lotto{
+	//당첨번호 생성 클래스 Lotto
+}

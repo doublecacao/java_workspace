@@ -1,0 +1,19 @@
+package lottomanager;
+
+import java.util.Scanner;
+
+public class LottoMain {
+
+	public static void main(String[] args) {
+		LottoManager lm = new LottoManager();
+		Scanner scan = new Scanner(System.in);
+		
+		Lotto l = new Lotto();
+		l.randomLotto();
+		System.out.println(l);
+		
+		
+		scan.close();
+	}
+
+}

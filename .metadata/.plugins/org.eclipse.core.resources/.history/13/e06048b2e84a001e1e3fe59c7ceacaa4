@@ -1,0 +1,43 @@
+package lottomanager;
+
+import java.util.Scanner;
+
+public class LottoManager implements LottoProgram{
+	Lotto lt = new Lotto();
+	LottoE[] le = new LottoE[5];
+	
+	@Override
+	public void createLotto(Scanner scan) {
+		lt.createLotto(scan);
+	}
+	
+	
+	@Override
+	public void createLottoAuto() {
+		// TODO Auto-generated method stub
+		System.out.println("랜덤 로또 번호를 생성합니다.");
+		lt.setLottoNum(lt.lotto());
+		System.out.println("생성이 완료되었습니다.");
+	}
+
+	@Override
+	public void insertLottoAuto() {
+		// TODO Auto-generated method stub
+		System.out.println("랜덤 당첨 번호를 생성합니다.");
+		lt.setCheckNum(lt.lotto());
+		System.out.println("생성이 완료되었습니다.");
+	}
+
+	@Override
+	public void checkLotto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void printLotto() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

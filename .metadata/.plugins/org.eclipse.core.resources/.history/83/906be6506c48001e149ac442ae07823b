@@ -1,0 +1,16 @@
+package day13;
+
+public class ProgramInterface {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+
+
+interface StuList{
+	abstract void StuListPrint();
+}

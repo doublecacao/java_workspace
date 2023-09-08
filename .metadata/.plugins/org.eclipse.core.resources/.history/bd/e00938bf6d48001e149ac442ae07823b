@@ -1,0 +1,10 @@
+package studentmanager;
+
+public class subject {
+	/* 과목클래스 : 한 과목의 기본정보를 나타내는 클래스
+	 * -과목코드, 과목명, 학점, 수강시간, 교수명, 학기, 시간표
+	 * -멤버변수 선언, 생성자, getter/setter, 그외 필요한 메서드
+	 * -(toString, print메서드 정도)
+	 * 
+	 */
+}

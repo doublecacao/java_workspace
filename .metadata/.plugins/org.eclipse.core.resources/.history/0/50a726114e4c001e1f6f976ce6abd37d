@@ -1,0 +1,15 @@
+package day14;
+
+public class CustomerMain {
+
+	public static void main(String[] args) {
+		Customer cLee = new Customer(1001, "리정혁");
+		Customer cHong = new GoldCustomer(1002, "홍길동");
+		Customer cKim = new VIPCustomer(1003, "김철수", 1111);
+		
+		int price = cKim.calcPrice(10000);
+		System.out.println("지불금액: "+price);
+		cKim.customerInfo();
+	}
+
+}

@@ -1,0 +1,32 @@
+package homework2;
+
+public class LottoE extends Lotto{
+	private int bonus;
+	
+	
+	//생성자
+	public LottoE() {
+		super();
+	}
+	
+	
+	
+	public void bonus() {
+		for(int i=0; i<super.getCheckNum().length; i++) {
+			bonus = (int)(Math.random()*45)+1;
+			if(bonus==super.getCheckNum()[i]) {
+				i--;
+			}
+		}
+	}
+
+
+	public int getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(int bonus) {
+		this.bonus = bonus;
+	}
+	
+}

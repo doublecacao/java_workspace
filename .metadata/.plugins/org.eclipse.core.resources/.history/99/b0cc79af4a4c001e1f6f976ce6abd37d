@@ -1,0 +1,21 @@
+package day14;
+
+public class Customer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	}
+	
+	//멤버변수 선언
+	protected int customerID;
+	protected String customerName;
+	protected String customerGrade;
+	protected int bonusPoint;
+	protected double bonusRatio;
+	
+	//생성자
+	public Customer() {
+		customerGrade = "Silver";
+		bonusRatio = 0.01;
+	}
+}

@@ -1,0 +1,14 @@
+package day14;
+
+public class 다형성 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// 다형성 : 하나의 코드가 여러 자료형을 구현되어 실행하는 것.
+		/* 객체지향프로그램의 4가지 특징
+		 * -추상화, 캡슐화, 상속, 다형성
+		 * -각각의 객체는 독립된 단위의 객체. 모아서 처리하는 모임.
+		 */
+	}
+
+}

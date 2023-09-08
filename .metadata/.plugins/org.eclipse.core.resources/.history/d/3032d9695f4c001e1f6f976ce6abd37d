@@ -1,0 +1,30 @@
+package day15;
+
+public class Exception01 {
+
+	public static void main(String[] args) {
+		/* Exception : 예외처리
+		 * 
+		 * RunTimeExeption
+		 * 	-ClassCastException
+		 * 	수행할 수 없는 타입 변환이 진행될 경우
+		 * 
+		 * 	-ArrayIndexOutOfBoundsExeption
+		 * 	배열에 잘못된 인덱스를 사용하여 접근할 경우
+		 * 
+		 * 	-NullPointerException
+		 * 	null객체의 인스턴스 메소드를 호출하는 등의 경우
+		 * 
+		 * 	-ArithmeticException
+		 * 	산술 연산에서 정수를 0으로 나누는등 연산을 수행할 수 없는 경우
+		 * 
+		 * 
+		 * try ~ catch ~ finally
+		 * try : 예외가 발생할 가능성이 있는 문구를 작성
+		 * catch : try 구문에서 발생한 예외를 처리
+		 * finally : try 구문외 반드시 실행되어야 하는 구문이 있을경우 사용 (없으면x)
+		 */
+
+	}
+
+}

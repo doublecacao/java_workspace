@@ -1,0 +1,13 @@
+package lottomanager;
+
+public class LottoE extends Lotto{
+	private int bonus;
+	
+	public void checkLotto() {
+		
+	}
+	
+	public void printLotto() {
+		
+	}
+}

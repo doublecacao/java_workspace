@@ -1,0 +1,77 @@
+package studentmanager;
+
+public class Student {
+	/* 학생클래스 : 한 학생의 정보를 나타내는 클래스
+	 * -학번, 이름, 주민번호, 학부, 학과, 과목(과목클래스를 배열로 생성[5])
+	 * -멤버변수 선언, 생성자, getter/setter, 기타 메서드...
+	 * -(학생이 수강을 신청하는 메서드, 철회하는 메서드, 기타 출력)
+	 */
+	
+	private String stuName;		//이름
+	private String stuNum;		//학번
+	private String stuAddress;		//주민번호
+	private String uniName;		//학부
+	private String uniClass;	//학과
+	private String[] subject = new String[5];	//과목
+	private int cnt;
+	
+	
+	Student() {}
+	Student(String stuName, String stuNum, String stuAddress, String uniName, String uniClass, String[] subject, int cnt){
+		this.stuName=stuName;
+		this.stuNum=stuNum;
+		this.stuAddress=stuAddress;
+		this.uniName=uniName;
+		this.uniClass=uniClass;
+		this.subject=subject;
+		this.cnt=cnt;
+	}
+	
+		
+	
+	
+	
+	public String getStuName() {
+		return stuName;
+	}
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
+	}
+	public String getStuNum() {
+		return stuNum;
+	}
+	public void setStuNum(String stuNum) {
+		this.stuNum = stuNum;
+	}
+	public String getStuAddress() {
+		return stuAddress;
+	}
+	public void setStuAddress(String stuAddress) {
+		this.stuAddress = stuAddress;
+	}
+	public String getUniName() {
+		return uniName;
+	}
+	public void setUniName(String uniName) {
+		this.uniName = uniName;
+	}
+	public String getUniClass() {
+		return uniClass;
+	}
+	public void setUniClass(String uniClass) {
+		this.uniClass = uniClass;
+	}
+	public String[] getSubject() {
+		return subject;
+	}
+	public void setSubject(String[] subject) {
+		this.subject = subject;
+		cnt++;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+}

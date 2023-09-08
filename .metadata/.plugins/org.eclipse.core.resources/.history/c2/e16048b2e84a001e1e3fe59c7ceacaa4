@@ -1,0 +1,22 @@
+package lottomanager;
+
+public class LottoE extends Lotto{
+	private int bonus;
+	
+	
+	//생성자
+	public LottoE() {
+		super();
+	}
+	
+	
+	public int bonus() {
+		for(int i=0; i<super.getCheckNum().length; i++) {
+			bonus = (int)(Math.random()*45)+1;
+			if(bonus==super.getCheckNum()[i]) {
+				i--;
+			}
+		}
+		return bonus;
+	}
+}

@@ -1,0 +1,14 @@
+1693786006898	Delete element
+1693795460791	Rename type 'StudentManager'
+1693798885216	Rename type 'LottoManager'
+1693799259701	Delete element
+1693805063638	Rename field 'lottoNum'
+1693872217852	Rename package 'lottomanager'
+1693872228251	Rename package 'lottomanagerMy'
+1693872237421	Rename package 'lottomanagerg'
+1693959093955	Rename type 'Customer'
+1693962243606	Delete element
+1694049930027	Move compilation unit
+1694144931647	Rename field 'point'
+1694145275502	Rename local variable 'pt'
+1694147079987	Rename method 'init'
